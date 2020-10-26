@@ -24,7 +24,7 @@ const useGetWidth = () => {
         setCurrent(width)
       }
 
-      timeout = setTimeout(() => (timeout = null), 100)
+      timeout = setTimeout(() => (timeout = null), 50)
     }
 
     window.addEventListener('resize', onResize)
