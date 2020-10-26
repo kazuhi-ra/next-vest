@@ -32,7 +32,7 @@ const Vests = () => {
   ]
 
   return (
-    <Layout title='Home | Next.js + TypeScript Example'>
+    <Layout title='ベスト一覧 - あしたのベストNext'>
       <StyledMain>
         <Wrapper>
           <StyledH1>いろんなベスト</StyledH1>

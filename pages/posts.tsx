@@ -15,7 +15,7 @@ const Posts = () => {
   }, [])
 
   return (
-    <Layout title='Home | Next.js + TypeScript Example'>
+    <Layout title='みんなの投稿 - あしたのベストNext'>
       <StyledMain>
         <Timeline
           dataSource={{
