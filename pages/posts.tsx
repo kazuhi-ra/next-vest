@@ -1,11 +1,15 @@
-import { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import { Timeline } from 'react-twitter-widgets'
-
 import styled from '@emotion/styled'
+
+import useGetWidth from '../hooks/use-get-width'
 
 const Posts = () => {
   const [isDark, setDark] = useState(false)
+  const currentWidth = useGetWidth()
+  const timelineWidth = currentWidth && currentWidth > 541 ? 500 : 300
+
   useEffect(() => {
     setDark(window.matchMedia('(prefers-color-scheme: dark)').matches)
   }, [])
@@ -19,7 +23,7 @@ const Posts = () => {
             screenName: 'ashitano_vest',
           }}
           options={{
-            width: '420',
+            width: `${timelineWidth}`,
             theme: `${isDark ? 'dark' : 'light'}`,
             chrome: 'nofooternoheader',
           }}
@@ -30,7 +34,9 @@ const Posts = () => {
 }
 
 const StyledMain = styled('main')`
-  width: 420px;
+  width: 70%;
+  max-width: 500px;
+  min-width: 300px;
   margin: 0 auto;
   padding-top: 30px;
   padding-bottom: 30px;
