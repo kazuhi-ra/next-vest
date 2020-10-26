@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import { Timeline } from 'react-twitter-widgets'
@@ -15,24 +16,39 @@ const Posts = () => {
   }, [])
 
   return (
-    <Layout title='みんなの投稿 - あしたのベストNext'>
-      <StyledMain>
-        <Timeline
-          dataSource={{
-            sourceType: 'profile',
-            screenName: 'ashitano_vest',
-          }}
-          options={{
-            width: `${timelineWidth}`,
-            theme: `${isDark ? 'dark' : 'light'}`,
-            chrome: 'nofooternoheader',
-          }}
+    <>
+      <Head>
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:site' content='@kazuhi_ra' />
+        <meta property='og:title' content='あしたのベスト' />
+        <meta property='og:url' content='https://ashitano.kazuhira.com/' />
+        <meta
+          property='og:description'
+          content='まわしますか、まわしませんか。'
         />
-      </StyledMain>
-    </Layout>
+        <meta
+          property='og:image'
+          content='https://ashitano.herokuapp.com/images/tweet-card.jpg'
+        />
+      </Head>
+      <Layout title='みんなの投稿 - あしたのベストNext'>
+        <StyledMain>
+          <Timeline
+            dataSource={{
+              sourceType: 'profile',
+              screenName: 'ashitano_vest',
+            }}
+            options={{
+              width: `${timelineWidth}`,
+              theme: `${isDark ? 'dark' : 'light'}`,
+              chrome: 'nofooternoheader',
+            }}
+          />
+        </StyledMain>
+      </Layout>
+    </>
   )
 }
-
 
 const StyledMain = styled('main')`
   width: 70%;

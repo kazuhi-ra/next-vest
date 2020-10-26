@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { FC } from 'react'
 import Link from 'next/link'
 
@@ -6,7 +7,7 @@ import Layout from '../components/Layout'
 
 import useGetWidth from '../hooks/use-get-width'
 
-type Props = { children: any; key: string; }
+type Props = { children: any; key: string }
 
 const Yo: FC<Props> = ({ children }) => {
   const currentWidth = useGetWidth()
@@ -32,30 +33,44 @@ const Vests = () => {
   ]
 
   return (
-    <Layout title='ベスト一覧 - あしたのベストNext'>
-      <StyledMain>
-        <Wrapper>
-          <StyledH1>いろんなベスト</StyledH1>
-          <VesftsWrapper>
-            {descriptions.map((description, i) => (
-              <Yo key={description}>
-                <StyledImg
-                  src={`https://ashitano.herokuapp.com/images/v${i + 1}.jpg`}
-                />
-                <StyledP>{description}</StyledP>
-              </Yo>
-            ))}
-          </VesftsWrapper>
-        </Wrapper>
-      </StyledMain>
-      <ReturnButton>
-        <Link href='/' passHref>
-          <StyledA className='return'>
-            ルーレットにもどる
-          </StyledA>
-        </Link>
-      </ReturnButton>
-    </Layout>
+    <>
+      <Head>
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:site' content='@kazuhi_ra' />
+        <meta property='og:title' content='あしたのベスト' />
+        <meta property='og:url' content='https://ashitano.kazuhira.com/' />
+        <meta
+          property='og:description'
+          content='まわしますか、まわしませんか。'
+        />
+        <meta
+          property='og:image'
+          content='https://ashitano.herokuapp.com/images/tweet-card.jpg'
+        />
+      </Head>
+      <Layout title='ベスト一覧 - あしたのベストNext'>
+        <StyledMain>
+          <Wrapper>
+            <StyledH1>いろんなベスト</StyledH1>
+            <VesftsWrapper>
+              {descriptions.map((description, i) => (
+                <Yo key={description}>
+                  <StyledImg
+                    src={`https://ashitano.herokuapp.com/images/v${i + 1}.jpg`}
+                  />
+                  <StyledP>{description}</StyledP>
+                </Yo>
+              ))}
+            </VesftsWrapper>
+          </Wrapper>
+        </StyledMain>
+        <ReturnButton>
+          <Link href='/' passHref>
+            <StyledA className='return'>ルーレットにもどる</StyledA>
+          </Link>
+        </ReturnButton>
+      </Layout>
+    </>
   )
 }
 
