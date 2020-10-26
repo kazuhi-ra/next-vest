@@ -1,37 +1,90 @@
 import React, { FC } from 'react'
 import styled from '@emotion/styled'
-
 import Link from 'next/link'
 
-type Props = {}
+import useGetWidth from '../hooks/use-get-width'
 
-const Header: FC<Props> = () => (
-  <StyledHeader>
-    <HeaderLimitter>
+type Props = {
+  children: React.ReactElement
+}
+
+type NavAProps = {
+  children: string
+  href: string
+}
+
+const Yo: FC<Props> = ({ children }) => {
+  const currentWidth = useGetWidth()
+
+  if (currentWidth && currentWidth > 541) {
+    return <StyledHeader>{children}</StyledHeader>
+  } else {
+    return <StyledHeaderSm>{children}</StyledHeaderSm>
+  }
+}
+
+const Title = () => {
+  const currentWidth = useGetWidth()
+  if (currentWidth && currentWidth > 541) {
+    return (
       <StyledH1>
-        {/* <StyledA href='/'>あしたのベストNext</StyledA> */}
         <Link href='/' passHref>
           <StyledA>あしたのベストNext</StyledA>
         </Link>
       </StyledH1>
-      <StyledNav>
-        <Link href='/vests' passHref>
-          <StyledNavA>ベスト一覧</StyledNavA>
+    )
+  } else {
+    return (
+      <StyledH1Sm>
+        <Link href='/' passHref>
+          <StyledA>あしたのベストNext</StyledA>
         </Link>
-        <Link href='/posts' passHref>
-          <StyledNavA>みんなの投稿</StyledNavA>
-        </Link>
-        <StyledNavA
+      </StyledH1Sm>
+    )
+  }
+}
+
+const NavA: FC<NavAProps> = ({ children, href }) => {
+  const currentWidth = useGetWidth()
+
+  if (currentWidth && currentWidth > 541) {
+    return (
+      <Link href={href} passHref>
+        <StyledNavA>{children}</StyledNavA>
+      </Link>
+    )
+  } else {
+    return (
+      <Link href={href} passHref>
+        <StyledNavASm>{children}</StyledNavASm>
+      </Link>
+    )
+  }
+}
+
+const Header = () => {
+  return (
+    <Yo>
+      <HeaderLimitter>
+        <Title />
+        <StyledNav>
+          <Link href='/vests' passHref>
+            <NavA>ベスト一覧</NavA>
+          </Link>
+          <Link href='/posts' passHref>
+            <NavA>みんなの投稿</NavA>
+          </Link>
+          {/* <StyledNavA
           href='https://www.amazon.jp/hz/wishlist/ls/24ZYKIXEM3SQV?ref_=wl_share'
           target='_blank'
         >
           応援する
-        </StyledNavA>
-      </StyledNav>
-    </HeaderLimitter>
-  </StyledHeader>
-)
-
+        </StyledNavA> */}
+        </StyledNav>
+      </HeaderLimitter>
+    </Yo>
+  )
+}
 
 const StyledHeader = styled('header')`
   background-color: #17223b;
@@ -40,6 +93,15 @@ const StyledHeader = styled('header')`
   height: 80px;
   box-sizing: border-box;
 `
+
+const StyledHeaderSm = styled('header')`
+  background-color: #17223b;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.15);
+  padding: 22px 8px;
+  height: 80px;
+  box-sizing: border-box;
+`
+
 const HeaderLimitter = styled('div')`
   max-width: 1200px;
   text-align: center;
@@ -51,6 +113,12 @@ const StyledH1 = styled('h1')`
   line-height: 40px;
   margin: 0;
   font-size: 24px;
+`
+const StyledH1Sm = styled('h1')`
+  float: left;
+  line-height: 40px;
+  margin: 0;
+  font-size: 18px;
 `
 
 const StyledA = styled('a')`
@@ -71,6 +139,15 @@ const StyledNavA = styled('a')`
   color: #ffffff;
   opacity: 0.65;
   font-size: 16px;
+`
+
+const StyledNavASm = styled('a')`
+  display: inline-block;
+  padding: 0 5px;
+  text-decoration: none;
+  color: #ffffff;
+  opacity: 0.65;
+  font-size: 14px;
 `
 
 export default Header
