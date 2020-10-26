@@ -9,8 +9,8 @@ type Props = {
 }
 
 type NavAProps = {
-  children: string
   href: string
+  content: string
 }
 
 const Yo: FC<Props> = ({ children }) => {
@@ -44,19 +44,19 @@ const Title = () => {
   }
 }
 
-const NavA: FC<NavAProps> = ({ children, href }) => {
+const NavA: FC<NavAProps> = ({ content, href }) => {
   const currentWidth = useGetWidth()
 
   if (currentWidth && currentWidth > 541) {
     return (
       <Link href={href} passHref>
-        <StyledNavA>{children}</StyledNavA>
+        <StyledNavA>{content}</StyledNavA>
       </Link>
     )
   } else {
     return (
       <Link href={href} passHref>
-        <StyledNavASm>{children}</StyledNavASm>
+        <StyledNavASm>{content}</StyledNavASm>
       </Link>
     )
   }
@@ -68,12 +68,8 @@ const Header = () => {
       <HeaderLimitter>
         <Title />
         <StyledNav>
-          <Link href='/vests' passHref>
-            <NavA>ベスト一覧</NavA>
-          </Link>
-          <Link href='/posts' passHref>
-            <NavA>みんなの投稿</NavA>
-          </Link>
+          <NavA content='ベスト一覧' href={'/vests'} />
+          <NavA content='みんなの投稿' href={'/posts'} />
           {/* <StyledNavA
           href='https://www.amazon.jp/hz/wishlist/ls/24ZYKIXEM3SQV?ref_=wl_share'
           target='_blank'
