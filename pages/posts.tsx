@@ -33,6 +33,7 @@ const Posts = () => {
   )
 }
 
+
 const StyledMain = styled('main')`
   width: 70%;
   max-width: 500px;
