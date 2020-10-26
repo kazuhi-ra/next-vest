@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import { Timeline } from 'react-twitter-widgets'
 import styled from '@emotion/styled'
