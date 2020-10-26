@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import styled from '@emotion/styled'
 
-import Image from 'Image'
+import Image from '../components/Image'
 
 type Props = {
   headSrc: string
@@ -29,7 +29,7 @@ const ImageWrapper = styled('div')`
 `
 
 let i = 0
-export default React.memo(Images, (prev, next) => {
+export default React.memo(Images, (prev, _) => {
   i++
   return prev.panelsLeft !== 0 && i % prev.panelsLeft !== 0
 })

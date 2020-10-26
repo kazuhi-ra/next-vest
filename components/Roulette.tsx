@@ -1,11 +1,11 @@
 import React, { useState, useMemo, useCallback } from 'react'
 import styled from '@emotion/styled'
 
-import Images from 'Images'
-import StopButton from 'StopButton'
-import StartButton from 'StartButton'
-import OnceAgainButton from 'OnceAgainButton'
-import TwitterShareButton from 'TwitterShareButton'
+import Images from '../components/Images'
+import StopButton from '../components/StopButton'
+import StartButton from '../components/StartButton'
+import OnceAgainButton from '../components/OnceAgainButton'
+import TwitterShareButton from '../components/TwitterShareButton'
 
 const heads = ['h1', 'h2', 'h3']
 const vests = ['v1', 'v2', 'v3', 'v4', 'v5', 'v6', 'v7', 'v8', 'v9']

@@ -17,4 +17,3 @@ const Image: FC<Props> = ({ src, imgHeight }) => {
 }
 
 export default React.memo(Image)
-// export default Image
