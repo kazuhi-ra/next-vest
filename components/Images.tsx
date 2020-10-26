@@ -10,6 +10,7 @@ type Props = {
   panelsLeft: number
 }
 
+// @ts-ignore
 const Images: FC<Props> = ({ headSrc, vestSrc, footSrc, panelsLeft }) => {
   return (
     <ImageWrapper>

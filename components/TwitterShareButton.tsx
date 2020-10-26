@@ -73,6 +73,6 @@ const TwitterShareButtonInactive = styled('button')`
   cursor: default;
 `
 
-export default React.memo(TwitterShareButton, (prev, next) => {
+export default React.memo(TwitterShareButton, (_, next) => {
   return next.isPlaying === true
 })

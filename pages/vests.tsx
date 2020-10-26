@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react'
+import { FC } from 'react'
 import Link from 'next/link'
 
 import styled from '@emotion/styled'
@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 
 import useGetWidth from '../hooks/use-get-width'
 
-type Props = { children: ReactElement }
+type Props = { children: any; key: string; }
 
 const Yo: FC<Props> = ({ children }) => {
   const currentWidth = useGetWidth()
