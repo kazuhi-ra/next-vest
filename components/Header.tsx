@@ -1,17 +1,26 @@
 import React, { FC } from 'react'
 import styled from '@emotion/styled'
 
+import Link from 'next/link'
+
 type Props = {}
 
 const Header: FC<Props> = () => (
   <StyledHeader>
     <HeaderLimitter>
       <StyledH1>
-        <StyledA href='/'>あしたのベストNext</StyledA>
+        {/* <StyledA href='/'>あしたのベストNext</StyledA> */}
+        <Link href='/' passHref>
+          <StyledA>あしたのベストNext</StyledA>
+        </Link>
       </StyledH1>
       <StyledNav>
-        <StyledNavA href='/vests'>ベスト一覧</StyledNavA>
-        <StyledNavA href='/posts'>みんなの投稿</StyledNavA>
+        <Link href='/vests' passHref>
+          <StyledNavA>ベスト一覧</StyledNavA>
+        </Link>
+        <Link href='/posts' passHref>
+          <StyledNavA>みんなの投稿</StyledNavA>
+        </Link>
         <StyledNavA
           href='https://www.amazon.jp/hz/wishlist/ls/24ZYKIXEM3SQV?ref_=wl_share'
           target='_blank'
@@ -22,6 +31,7 @@ const Header: FC<Props> = () => (
     </HeaderLimitter>
   </StyledHeader>
 )
+
 
 const StyledHeader = styled('header')`
   background-color: #17223b;
