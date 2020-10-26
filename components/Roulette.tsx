@@ -16,9 +16,9 @@ export type IntervalID = null | NodeJS.Timeout
 export type SetId = React.Dispatch<React.SetStateAction<IntervalID>>
 
 const Roulette = () => {
-  const [head, setHead] = useState(0)
-  const [vest, setVest] = useState(0)
-  const [foot, setFoot] = useState(0)
+  const [head, setHead] = useState(Math.floor(Math.random() * heads.length))
+  const [vest, setVest] = useState(Math.floor(Math.random() * vests.length))
+  const [foot, setFoot] = useState(Math.floor(Math.random() * foots.length))
   const [headId, setHeadId] = useState<IntervalID>(null)
   const [vestId, setVestId] = useState<IntervalID>(null)
   const [footId, setFootId] = useState<IntervalID>(null)
