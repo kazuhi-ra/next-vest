@@ -93,7 +93,7 @@ const StyledHeader = styled('header')`
 const StyledHeaderSm = styled('header')`
   background-color: #17223b;
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.15);
-  padding: 22px 8px;
+  padding: 22px 14px;
   height: 80px;
   box-sizing: border-box;
 `
