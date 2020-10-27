@@ -1,9 +1,13 @@
 {
-  "routes": [
+  "headers": [
     {
-      "src": "/public/images/(.*)",
-      "headers": { "cache-control": "s-maxage=604800" },
-      "dest": "/public/images/$1"
+      "source": "/public/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
     }
   ]
 }
