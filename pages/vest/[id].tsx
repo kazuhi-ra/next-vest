@@ -30,15 +30,15 @@ const Image: FC<ImageProps> = ({ src, imgHeight }) => {
 }
 
 const IndexPage: FC<IndexPageProps> = ({ id }) => {
-  const headId = id && Number(id[0]) - 1
-  const vestId = id && Number(id[1]) - 1
-  const footId = id && Number(id[2]) - 1
+  const headId = id && Number(id[0])
+  const vestId = id && Number(id[1])
+  const footId = id && Number(id[2])
 
   console.log(headId, vestId, footId)
 
-  const headSrc = headId ? heads[headId] : 'blank_vest'
-  const vestSrc = vestId ? vests[vestId] : 'blank_vest'
-  const footSrc = footId ? foots[footId] : 'blank_vest'
+  const headSrc = headId ? heads[headId - 1] : 'blank_vest'
+  const vestSrc = vestId ? vests[vestId - 1] : 'blank_vest'
+  const footSrc = footId ? foots[footId - 1] : 'blank_vest'
 
   console.log(headSrc, vestSrc, footSrc)
 
