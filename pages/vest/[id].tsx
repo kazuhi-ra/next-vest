@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { GetStaticProps } from 'next'
 import Layout from '../../components/Layout'
 import styled from '@emotion/styled'
 
@@ -9,12 +9,16 @@ const heads = ['h1', 'h2', 'h3']
 const vests = ['v1', 'v2', 'v3', 'v4', 'v5', 'v6', 'v7', 'v8', 'v9']
 const foots = ['p1', 'p2', 'p3', 'p4', 'p5']
 
-type Props = {
+type ImageProps = {
   src: string
   imgHeight: number
 }
 
-const Image: FC<Props> = ({ src, imgHeight }) => {
+type IndexPageProps = {
+  id: string | undefined
+}
+
+const Image: FC<ImageProps> = ({ src, imgHeight }) => {
   return (
     <img
       src={`/images/${src}.jpg`}
@@ -25,18 +29,18 @@ const Image: FC<Props> = ({ src, imgHeight }) => {
   )
 }
 
-const IndexPage = () => {
-  const router = useRouter()
-  const id = router.query.id
+const IndexPage: FC<IndexPageProps> = ({ id }) => {
+  const headId = id && Number(id[0]) - 1
+  const vestId = id && Number(id[1]) - 1
+  const footId = id && Number(id[2]) - 1
 
-  const headId = id && Number(id[0])
-  const vestId = id && Number(id[1])
-  const footId = id && Number(id[2])
-  
+  console.log(headId, vestId, footId)
+
   const headSrc = headId ? heads[headId] : 'blank_vest'
   const vestSrc = vestId ? vests[vestId] : 'blank_vest'
   const footSrc = footId ? foots[footId] : 'blank_vest'
-  
+
+  console.log(headSrc, vestSrc, footSrc)
 
   return (
     <>
@@ -51,7 +55,7 @@ const IndexPage = () => {
         />
         <meta
           property='og:image'
-          content='https://ashitano.herokuapp.com/images/tweet-card.jpg'
+          content={`/images/${vestId}${footId}.png`}
         />
       </Head>
       <Layout title='みんなの投稿 - あしたのベストNext'>
@@ -112,5 +116,36 @@ const StyledA = styled('a')`
     box-shadow: none;
   }
 `
+
+export async function getStaticPaths() {
+  // [/vest/1-3,1-9,1-5] -> [111-395]
+  const a = [...Array(395).keys()]
+    .map(i => ++i)
+    .filter(
+      n =>
+        n > 110 &&
+        n - Math.floor(n / 10) * 10 < 6 &&
+        n - Math.floor(n / 10) * 10 !== 0 &&
+        !String(n).includes('0')
+    )
+  const paths = a.map(n => `/vest/${n}`)
+
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const params = context.params
+  const id = params?.id
+
+  return {
+    props: {
+      id,
+    },
+  }
+}
 
 export default IndexPage
