@@ -24,7 +24,7 @@ const Posts = () => {
         <meta property='og:url' content='https://next-vest.kazuhira.dev' />
         <meta
           property='og:description'
-          content='あれが帰ってきた！。'
+          content='あれが帰ってきた'
         />
         <meta
           property='og:image'
