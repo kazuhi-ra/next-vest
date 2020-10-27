@@ -28,7 +28,7 @@ const Posts = () => {
         />
         <meta
           property='og:image'
-          content='https://ashitano.herokuapp.com/images/tweet-card.jpg'
+          content='https://next-vest.kazuhira.dev/images/tweet-card.jpg'
         />
       </Head>
       <Layout title='みんなの投稿 - NEXTのベスト'>

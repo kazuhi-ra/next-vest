@@ -45,7 +45,7 @@ const Vests = () => {
         />
         <meta
           property='og:image'
-          content='https://ashitano.herokuapp.com/images/tweet-card.jpg'
+          content='https://next-vest.kazuhira.dev/images/tweet-card.jpg'
         />
       </Head>
       <Layout title='ベスト一覧 - NEXTのベスト'>
@@ -56,7 +56,7 @@ const Vests = () => {
               {descriptions.map((description, i) => (
                 <Yo key={description}>
                   <StyledImg
-                    src={`https://ashitano.herokuapp.com/images/v${i + 1}.jpg`}
+                    src={`https://next-vest.kazuhira.dev/images/v${i + 1}.jpg`}
                     width='280'
                     height='140'
                   />
