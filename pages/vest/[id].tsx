@@ -51,7 +51,7 @@ const IndexPage: FC<IndexPageProps> = ({ id }) => {
         />
         <meta
           property='og:image'
-          content={`/images/${vestId}${footId}.png`}
+          content={`https://ashitano.kazuhira.com/images/${vestId}${footId}.png`}
         />
       </Head>
       <Layout title='みんなの投稿 - NEXTのベスト'>
