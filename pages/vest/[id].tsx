@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
 import styled from '@emotion/styled'
 
@@ -24,38 +25,52 @@ const Image: FC<Props> = ({ src, imgHeight }) => {
   )
 }
 
-const IndexPage = () => (
-  <>
-    <Head>
-      <meta name='twitter:card' content='summary_large_image' />
-      <meta name='twitter:site' content='@kazuhi_ra' />
-      <meta property='og:title' content='あしたのベスト' />
-      <meta property='og:url' content='https://ashitano.kazuhira.com/' />
-      <meta
-        property='og:description'
-        content='まわしますか、まわしませんか。'
-      />
-      <meta
-        property='og:image'
-        content='https://ashitano.herokuapp.com/images/tweet-card.jpg'
-      />
-    </Head>
-    <Layout title='みんなの投稿 - あしたのベストNext'>
-      <MainWrapper className='wrapper'>
-        <ImageWrapper>
-          <Image src={heads[0]} imgHeight={120} />
-          <Image src={vests[0]} imgHeight={150} />
-          <Image src={foots[0]} imgHeight={232} />
-        </ImageWrapper>
-      </MainWrapper>
-      <ReturnButton>
+const IndexPage = () => {
+  const router = useRouter()
+  const id = router.query.id
+
+  const headId = id && Number(id[0])
+  const vestId = id && Number(id[1])
+  const footId = id && Number(id[2])
+  
+  const headSrc = headId ? heads[headId] : 'blank_vest'
+  const vestSrc = vestId ? vests[vestId] : 'blank_vest'
+  const footSrc = footId ? foots[footId] : 'blank_vest'
+  
+
+  return (
+    <>
+      <Head>
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:site' content='@kazuhi_ra' />
+        <meta property='og:title' content='あしたのベスト' />
+        <meta property='og:url' content='https://ashitano.kazuhira.com/' />
+        <meta
+          property='og:description'
+          content='まわしますか、まわしませんか。'
+        />
+        <meta
+          property='og:image'
+          content='https://ashitano.herokuapp.com/images/tweet-card.jpg'
+        />
+      </Head>
+      <Layout title='みんなの投稿 - あしたのベストNext'>
+        <MainWrapper className='wrapper'>
+          <ImageWrapper>
+            <Image src={headSrc} imgHeight={120} />
+            <Image src={vestSrc} imgHeight={150} />
+            <Image src={footSrc} imgHeight={232} />
+          </ImageWrapper>
+        </MainWrapper>
+        <ReturnButton>
           <Link href='/' passHref>
             <StyledA className='return'>ルーレットにもどる</StyledA>
           </Link>
         </ReturnButton>
-    </Layout>
-  </>
-)
+      </Layout>
+    </>
+  )
+}
 
 const MainWrapper = styled('main')`
   width: 100%;
