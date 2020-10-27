@@ -37,7 +37,7 @@ const Vests = () => {
       <Head>
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:site' content='@kazuhi_ra' />
-        <meta property='og:title' content='あしたのベスト' />
+        <meta property='og:title' content='NEXTのベスト' />
         <meta property='og:url' content='https://ashitano.kazuhira.com/' />
         <meta
           property='og:description'
@@ -48,7 +48,7 @@ const Vests = () => {
           content='https://ashitano.herokuapp.com/images/tweet-card.jpg'
         />
       </Head>
-      <Layout title='ベスト一覧 - あしたのベストNext'>
+      <Layout title='ベスト一覧 - NEXTのベスト'>
         <StyledMain>
           <Wrapper>
             <StyledH1>いろんなベスト</StyledH1>

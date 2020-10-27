@@ -29,7 +29,7 @@ const Title = () => {
     return (
       <StyledH1>
         <Link href='/' passHref>
-          <StyledA>あしたのベストNext</StyledA>
+          <StyledA>NEXTのベスト</StyledA>
         </Link>
       </StyledH1>
     )
@@ -37,7 +37,7 @@ const Title = () => {
     return (
       <StyledH1Sm>
         <Link href='/' passHref>
-          <StyledA>あしたのベストNext</StyledA>
+          <StyledA>NEXTのベスト</StyledA>
         </Link>
       </StyledH1Sm>
     )

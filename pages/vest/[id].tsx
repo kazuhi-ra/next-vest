@@ -43,7 +43,7 @@ const IndexPage: FC<IndexPageProps> = ({ id }) => {
       <Head>
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:site' content='@kazuhi_ra' />
-        <meta property='og:title' content='あしたのベスト' />
+        <meta property='og:title' content='NEXTのベスト' />
         <meta property='og:url' content='https://ashitano.kazuhira.com/' />
         <meta
           property='og:description'
@@ -54,7 +54,7 @@ const IndexPage: FC<IndexPageProps> = ({ id }) => {
           content={`/images/${vestId}${footId}.png`}
         />
       </Head>
-      <Layout title='みんなの投稿 - あしたのベストNext'>
+      <Layout title='みんなの投稿 - NEXTのベスト'>
         <MainWrapper className='wrapper'>
           <ImageWrapper>
             <Image src={headSrc} imgHeight={120} />

@@ -14,7 +14,7 @@ const TwitterShareButton: FC<Props> = ({ isPlaying, head, vest, foot }) => {
   return !isPlaying ? (
     <TwitterShareButtonActive>
       <StyledA
-        href={`http://twitter.com/share?url=https://ashitano.herokuapp.com/vest/${pageId}&text=@kazuhi_ra あしたのベストはこれです&hashtags=あしたのベスト`}
+        href={`http://twitter.com/share?url=https://ashitano.herokuapp.com/vest/${pageId}&text=@kazuhi_ra 次のベストはこれです&hashtags=あしたのベスト`}
         target='_blank'
       >
         これにする
