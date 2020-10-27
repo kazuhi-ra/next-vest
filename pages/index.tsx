@@ -24,7 +24,7 @@ const IndexPage = () => {
         <meta property='og:url' content='https://next-vest.kazuhira.dev' />
         <meta
           property='og:description'
-          content='まわしますか、まわしませんか。'
+          content='あれが帰ってきた！'
         />
         <meta
           property='og:image'
