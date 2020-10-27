@@ -44,14 +44,14 @@ const IndexPage: FC<IndexPageProps> = ({ id }) => {
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:site' content='@kazuhi_ra' />
         <meta property='og:title' content='NEXTのベスト' />
-        <meta property='og:url' content='https://ashitano.kazuhira.com/' />
+        <meta property='og:url' content='https://next-vest.kazuhira.dev' />
         <meta
           property='og:description'
           content='まわしますか、まわしませんか。'
         />
         <meta
           property='og:image'
-          content={`https://next-vest.kazuhira.com/images/${vestId}${footId}.png`}
+          content={`https://next-vest.kazuhira.dev/images/${vestId}${footId}.png`}
           // content={`https://next-vest.kazuhira.dev/images/11.png`}
         />
       </Head>

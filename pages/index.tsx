@@ -21,7 +21,7 @@ const IndexPage = () => {
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:site' content='@kazuhi_ra' />
         <meta property='og:title' content='NEXTのベスト' />
-        <meta property='og:url' content='https://ashitano.kazuhira.com/' />
+        <meta property='og:url' content='https://next-vest.kazuhira.dev' />
         <meta
           property='og:description'
           content='まわしますか、まわしませんか。'
