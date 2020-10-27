@@ -34,13 +34,9 @@ const IndexPage: FC<IndexPageProps> = ({ id }) => {
   const vestId = id && Number(id[1])
   const footId = id && Number(id[2])
 
-  console.log(headId, vestId, footId)
-
   const headSrc = headId ? heads[headId - 1] : 'blank_vest'
   const vestSrc = vestId ? vests[vestId - 1] : 'blank_vest'
   const footSrc = footId ? foots[footId - 1] : 'blank_vest'
-
-  console.log(headSrc, vestSrc, footSrc)
 
   return (
     <>
