@@ -57,8 +57,8 @@ const Vests = () => {
                 <Yo key={description}>
                   <StyledImg
                     src={`https://next-vest.kazuhira.dev/images/v${i + 1}.jpg`}
-                    width='280'
-                    height='140'
+                    // width='28'
+                    // height='14'
                   />
                   <StyledP>{description}</StyledP>
                 </Yo>
