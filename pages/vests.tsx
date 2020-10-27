@@ -57,6 +57,8 @@ const Vests = () => {
                 <Yo key={description}>
                   <StyledImg
                     src={`https://ashitano.herokuapp.com/images/v${i + 1}.jpg`}
+                    width='280'
+                    height='140'
                   />
                   <StyledP>{description}</StyledP>
                 </Yo>
