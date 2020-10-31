@@ -10,9 +10,16 @@ async function main() {
   try {
     await app.prepare()
     const server = express()
+
+    server.get('/images/*', (_, res, nextHandler) => {
+      res.setHeader('Cache-Control', 'public, max-age=3153600, immutable')
+      nextHandler()
+    })
+
     server.all('*', (req: Request, res: Response) => {
       return handle(req, res)
     })
+
     server.listen(port, (err?: any) => {
       if (err) throw err
       console.log(`> Ready on localhost:${port} - env ${process.env.NODE_ENV}`)
